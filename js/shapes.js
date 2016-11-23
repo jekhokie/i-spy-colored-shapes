@@ -87,14 +87,20 @@ $(document).ready(function() {
     // generate the middle 'select shape' text and styling
     function genSelectText(color, shapeName) {
         // place text
-        var textContent = "Click the " + color['name'] + " " + shapeName;
+        var textPlace = 'a ';
+        var textOffset = 8;
+        if (['a', 'e', 'i', 'o', 'u'].indexOf(color['name'][0].toLowerCase()) !== -1) {
+            textPlace = 'an ';
+            textOffset = 9;
+        }
+        var textContent = "I spy " + textPlace + color['name'] + " " + shapeName;
         var textStyle = { align: "center" };
         var text = game.add.text(game.world.centerX, game.world.centerY, textContent, textStyle);
         text.anchor.set(0.5);
 
         // color the name of the color that needs to be selected with the actual color
-        text.addColor(color['hexWeb'], 10);
-        text.addColor(BLACK, 10 + color['name'].length);
+        text.addColor(color['hexWeb'], textOffset);
+        text.addColor(BLACK, textOffset + color['name'].length);
     }
 
     // generate/pick a random color
