@@ -34,7 +34,6 @@ window.onload = function() {
     WIDTH = window.innerWidth - 20;
     HEIGHT = window.innerHeight - 20;
 
-
     // calculate the height and width of each quadrant based on screen size
     QUAD_WIDTH = WIDTH / 2;
     QUAD_HEIGHT = HEIGHT / 2 - 40;
